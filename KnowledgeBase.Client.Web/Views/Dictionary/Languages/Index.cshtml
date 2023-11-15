@@ -1,0 +1,51 @@
+@model IList<LanguageDTO>
+
+<div classa="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="text-white">Languages List</h1>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <div class="row pb-3">
+            <div class="col-6">
+            </div>
+            <div class="col-6 text-end">
+                <a asp-controller="Languages" asp-action="Create" class="btn btn-outline-primary"><i class="bi bi-plus-square"></i> Create New Language</a>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Language Name
+                    </th>
+                    <th>
+                        Language Code
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Content
+                        </td>
+                        <td>
+                            @item.Code
+                        </td>
+                        <td>
+                            <a asp-controller="Languages" asp-action="Delete" asp-route-languageId="@item.Id" class="btn btn-danger">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

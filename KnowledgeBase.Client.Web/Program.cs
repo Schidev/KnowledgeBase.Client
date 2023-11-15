@@ -1,4 +1,20 @@
+using KnowledgeBase.Client.Web.Utility;
+using KnowledgeBase.Client.Web.Services;
+using KnowledgeBase.Client.Web.Services.IServices;
+
 var builder = WebApplication.CreateBuilder(args);
+
+#region Configure Static Details
+StaticDetails.LanguagesAPIBase = builder.Configuration["ServiceUrls:LanguageAPI"];
+#endregion
+
+builder.Services.AddHttpClient();
+builder.Services.AddHttpClient<ILanguageService, LanguageService>();
+
+#region Register Services
+builder.Services.AddScoped<IBaseService, BaseService>();
+builder.Services.AddScoped<ILanguageService, LanguageService>();
+#endregion
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
