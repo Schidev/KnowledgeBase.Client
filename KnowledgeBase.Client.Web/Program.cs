@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 #region Configure Static Details
 StaticDetails.LanguagesAPIBase = builder.Configuration["ServiceUrls:LanguageAPI"];
+StaticDetails.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
 #endregion
 
 builder.Services.AddHttpClient();
