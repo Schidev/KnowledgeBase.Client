@@ -11,10 +11,12 @@ StaticDetails.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
 
 builder.Services.AddHttpClient();
 builder.Services.AddHttpClient<ILanguageService, LanguageService>();
+builder.Services.AddHttpClient<IAuthService, AuthService>();
 
 #region Register Services
 builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<ILanguageService, LanguageService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 #endregion
 
 // Add services to the container.
