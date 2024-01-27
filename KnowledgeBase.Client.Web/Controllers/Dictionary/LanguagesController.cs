@@ -1,6 +1,7 @@
 using KnowledgeBase.Client.Web.Models.Base;
 using KnowledgeBase.Client.Web.Models.Dictionary;
 using KnowledgeBase.Client.Web.Services.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -11,6 +12,7 @@ namespace KnowledgeBase.Client.Web.Controllers.Dictionary
         private readonly ILanguageService _languageService;
         public LanguagesController(ILanguageService languageService) => _languageService = languageService;
 
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             List<LanguageDTO>? languages = new();

@@ -9,13 +9,16 @@
         </div>
     </div>
     <div class="card-body p-4">
-        <div class="row pb-3">
-            <div class="col-6">
+        @if(User.IsInRole(StaticDetails.RoleAdmin))
+        {
+            <div class="row pb-3">
+                <div class="col-6">
+                </div>
+                <div class="col-6 text-end">
+                    <a asp-controller="Languages" asp-action="Create" class="btn btn-outline-primary"><i class="bi bi-plus-square"></i> Create New Language</a>
+                </div>
             </div>
-            <div class="col-6 text-end">
-                <a asp-controller="Languages" asp-action="Create" class="btn btn-outline-primary"><i class="bi bi-plus-square"></i> Create New Language</a>
-            </div>
-        </div>
+        }
         <table class="table">
             <thead>
                 <tr>

@@ -38,7 +38,7 @@ namespace KnowledgeBase.Client.Web.Services
                 ApiType = StaticDetails.ApiType.POST,
                 Data = registrationRequestDto,
                 Url = StaticDetails.AuthAPIBase + "/api/auth/AssignRole"
-            }, withBearer: false);
+            });
         }
     }
 }
