@@ -4,6 +4,6 @@ namespace KnowledgeBase.Client.Web.Services.IServices
 {
     public interface IBaseService
     {
-        Task<ResponseDTO?> SendAsync(RequestDTO requestDto);
+        Task<ResponseDTO?> SendAsync(RequestDTO requestDto, bool withBearer = true);
     }
 }

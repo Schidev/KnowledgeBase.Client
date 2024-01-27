@@ -11,11 +11,13 @@ namespace KnowledgeBase.Client.Web.Services
     {
 
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly ITokenProvider _tokenProvider;
 
-        public BaseService(IHttpClientFactory httpClientFactory) => _httpClientFactory = httpClientFactory;
+        public BaseService(IHttpClientFactory httpClientFactory, ITokenProvider tokenProvider)
+            => (_httpClientFactory, _tokenProvider) = (httpClientFactory, tokenProvider);
 
 
-        public async Task<ResponseDTO?> SendAsync(RequestDTO requestDto)
+        public async Task<ResponseDTO?> SendAsync(RequestDTO requestDto, bool withBearer = true)
         {
             try
             {
@@ -24,7 +26,13 @@ namespace KnowledgeBase.Client.Web.Services
                 HttpRequestMessage message = new();
 
                 message.Headers.Add("Accept", "application/json");
+                
                 //token
+                if (withBearer)
+                {
+                    var token = _tokenProvider.GetToken();
+                    message.Headers.Add("Authorization", $"Bearer {token}");
+                }
 
                 message.RequestUri = new Uri(requestDto.Url);
 

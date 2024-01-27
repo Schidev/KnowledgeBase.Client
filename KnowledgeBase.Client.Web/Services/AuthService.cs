@@ -19,7 +19,7 @@ namespace KnowledgeBase.Client.Web.Services
                 ApiType = StaticDetails.ApiType.POST,
                 Data = loginRequestDto,
                 Url = StaticDetails.AuthAPIBase + "/api/Auth/Login"
-            });
+            }, withBearer: false);
         }
 
         public async Task<ResponseDTO> RegisterAsync(RegistrationRequestDTO registrationRequestDto)
@@ -29,7 +29,7 @@ namespace KnowledgeBase.Client.Web.Services
                 ApiType = StaticDetails.ApiType.POST,
                 Data = registrationRequestDto,
                 Url = StaticDetails.AuthAPIBase + "/api/Auth/Register"
-            });
+            }, withBearer: false);
         }
         public async Task<ResponseDTO> AssignRoleAsync(RegistrationRequestDTO registrationRequestDto)
         {
@@ -38,7 +38,7 @@ namespace KnowledgeBase.Client.Web.Services
                 ApiType = StaticDetails.ApiType.POST,
                 Data = registrationRequestDto,
                 Url = StaticDetails.AuthAPIBase + "/api/auth/AssignRole"
-            });
+            }, withBearer: false);
         }
     }
 }

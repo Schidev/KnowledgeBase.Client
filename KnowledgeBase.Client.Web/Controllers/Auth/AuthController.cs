@@ -33,7 +33,7 @@ namespace KnowledgeBase.Client.Web.Controllers.Auth
         {
             ResponseDTO responseDto = await _authService.LoginAsync(loginResponceDTO);
 
-            if (responseDto != null && responseDto.Result != null && responseDto.IsSuccess)
+            if (responseDto != null && responseDto.IsSuccess)
             {
                 LoginResponseDTO loginResponseDto =
                     JsonConvert.DeserializeObject<LoginResponseDTO>(Convert.ToString(responseDto.Result));
@@ -70,7 +70,7 @@ namespace KnowledgeBase.Client.Web.Controllers.Auth
             ResponseDTO result = await _authService.RegisterAsync(registrationRequestDTO);
             ResponseDTO assingRole;
 
-            if (result != null && result.Result != null && result.IsSuccess)
+            if (result != null && result.IsSuccess)
             {
                 if (string.IsNullOrEmpty(registrationRequestDTO.Role))
                 {
