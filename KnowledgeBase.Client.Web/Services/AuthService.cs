@@ -18,7 +18,7 @@ namespace KnowledgeBase.Client.Web.Services
             {
                 ApiType = StaticDetails.ApiType.POST,
                 Data = loginRequestDto,
-                Url = StaticDetails.AuthAPIBase + "/api/auth/Login"
+                Url = StaticDetails.AuthAPIBase + "/api/Auth/Login"
             });
         }
 
@@ -28,7 +28,7 @@ namespace KnowledgeBase.Client.Web.Services
             {
                 ApiType = StaticDetails.ApiType.POST,
                 Data = registrationRequestDto,
-                Url = StaticDetails.AuthAPIBase + "/api/auth/Register"
+                Url = StaticDetails.AuthAPIBase + "/api/Auth/Register"
             });
         }
         public async Task<ResponseDTO> AssignRoleAsync(RegistrationRequestDTO registrationRequestDto)

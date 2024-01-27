@@ -4,6 +4,9 @@ namespace KnowledgeBase.Client.Web.Utility
     {
         public static string LanguagesAPIBase { get; set; }
         public static string AuthAPIBase { get; set; }
+
+        public const string RoleAdmin = "ADMIN";
+        public const string RoleUser = "USER";
         public enum ApiType
         {
             GET,
